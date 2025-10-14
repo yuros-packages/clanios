@@ -31,14 +31,12 @@ validpgpkeys=()
 
 
 build() {
-	echo "Building $pkgname..."
-}
-
-prepare() {
+	echo "cleaning obsolute $pkgname..."
 	sudo rm -fr /etc/bash.bashrc
 	sudo rm -fr /etc/profile
 	sudo rm -fr /usr/lib/os-release
 }
+
 
 
 package() {
