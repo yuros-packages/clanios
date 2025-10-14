@@ -3,7 +3,7 @@
 # clanios default bash themes
 # copyritght@almuhdilkarim 2025
 
-if [ $(id -u) -eq 0  -a -d .git ];then
+if [ $(id -u) -eq 0 -a -d .git ];then
     PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[38;5;196m\](\#)\[\e[0m\] \[\e[38;5;196m\]\u\[\e[0m\] \[\e[38;5;196m\](\[\e[0m\] \[\e[38;5;196m\]\t\[\e[0m\] \[\e[38;5;196m\]|\[\e[0m\] \[\e[38;5;196m\]\w\[\e[0m\] \[\e[38;5;196m\])\n\[\e[0m\] \[\e[38;5;196m\] ( \[\e[38;5;40m\]branch\[\e[0m\] : \[\e[38;5;40m\]${PS1_CMD1}\[\e[0m\] )\n |--> '
 elif [ $(id -u) -eq 0 ];then
     PS1='\[\e[38;5;196m\](\#)\[\e[0m\] \[\e[38;5;196m\]\u\[\e[0m\] \[\e[38;5;196m\](\[\e[0m\] \[\e[38;5;196m\]\t\[\e[0m\] \[\e[38;5;196m\]|\[\e[0m\] \[\e[38;5;196m\]\w\[\e[0m\] \[\e[38;5;196m\])\n\[\e[0m\] \[\e[38;5;196m\]|-->\[\e[0m\] '
