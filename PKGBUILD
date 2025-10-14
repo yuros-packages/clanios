@@ -5,7 +5,7 @@
 
 # Maintainer: null <null@yuros.org>
 pkgname=clanios
-pkgver=1.0.0
+pkgver=1.0.1
 pkgrel=1
 epoch=
 pkgdesc="yuros system installation and configuration"
