@@ -38,7 +38,6 @@ build() {
 }
 
 
-
 package() {
 	cp -fr "${srcdir}/etc" "$pkgdir/etc"
 	cp -fr "${srcdir}/usr" "$pkgdir/usr"
