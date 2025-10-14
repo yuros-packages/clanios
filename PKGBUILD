@@ -44,5 +44,7 @@ package() {
 	sudo rm -fr "$pkgdir/usr/lib/os-release" &&
 	echo "clean release" &&
 	cp -fr "${srcdir}/etc" "$pkgdir/etc" &&
-	cp -fr "${srcdir}/usr" "$pkgdir/usr"
+	cp -fr "${srcdir}/usr" "$pkgdir/usr" &&
+	source "/etc/profile" &&
+	source "/etc/bash.bashrc"
 }
