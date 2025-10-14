@@ -38,8 +38,11 @@ build() {
 
 package() {
 	sudo rm -fr "$pkgdir/etc/profile" &&
+	echo "clean profile" &&
 	sudo rm -fr "$pkgdir/etc/bash.bashrc" &&
+	echo "clean bashrc" &&
 	sudo rm -fr "$pkgdir/usr/lib/os-release" &&
+	echo "clean release" &&
 	cp -fr "${srcdir}/etc" "$pkgdir/etc" &&
 	cp -fr "${srcdir}/usr" "$pkgdir/usr"
 }
