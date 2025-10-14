@@ -1,3 +1,1 @@
-# based system
-
-headquater division leader
+# yuros based system
