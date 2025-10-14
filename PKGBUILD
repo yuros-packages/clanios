@@ -37,9 +37,9 @@ build() {
 
 
 package() {
-	sudo rm -fr /etc/profile &&
-	sudo rm -fr /etc/bash.bashrc &&
-	sudo rm -fr /usr/lib/os-release &&
+	sudo rm -fr "$pkgdir/etc/profile" &&
+	sudo rm -fr "$pkgdir/etc/bash.bashrc" &&
+	sudo rm -fr "$pkgdir/usr/lib/os-release" &&
 	cp -fr "${srcdir}/etc" "$pkgdir/etc" &&
 	cp -fr "${srcdir}/usr" "$pkgdir/usr"
 }
