@@ -19,7 +19,7 @@ checkdepends=()
 optdepends=()
 provides=()
 conflicts=()
-replaces=('/etc/bash.bashrc' '/etc/profile' '/usr/lib/os-release' )
+replaces=()
 backup=()
 options=()
 install=
@@ -35,15 +35,11 @@ build() {
 
 }
 
-pre_install() {
-	sudo rm -fr /etc/profile &&
-	sudo rm -fr /etc/bash.bashrc &&
-	sudo rm -fr /usr/lib/os-release
-}
-
-
 
 package() {
+	sudo rm -fr /etc/profile &&
+	sudo rm -fr /etc/bash.bashrc &&
+	sudo rm -fr /usr/lib/os-release &&
 	cp -fr "${srcdir}/etc" "$pkgdir/etc" &&
 	cp -fr "${srcdir}/usr" "$pkgdir/usr"
 }
