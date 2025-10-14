@@ -17,8 +17,5 @@ fi
 
 # Load alias command
 if test -d /usr/local/bash/aliases; then
-	for alias in /usr/local/bash/aliases/*.sh; do
-		test -r "$alias" && . "$alias"
-	done
-	unset alias
+	. "/usr/local/bash/aliases/package.sh";
 fi
