@@ -17,7 +17,11 @@ git push &&
 echo "REPO UPDATE" &&
 cd ../repository/$arch/ &&
 repo-add yuros.db.tar.gz *.pkg.tar.zst &&
-rm *.old &&
+
+if [[ -e "*.old" ]]; then
+    rm *.old
+fi
+
 git pull &&
 git add . &&
 git commit -m "update" &&
