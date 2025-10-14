@@ -5,7 +5,7 @@ source PKGBUILD
 ## package update
 makepkg --skipinteg --noextract -f &&
 mkdir -p ../repository/$arch/ &&
-mv "$pkgname-$pkgver-1-x86_64.pkg.tar.zst" ../repository/$arch/ &&
+mv -f "$pkgname-$pkgver-1-x86_64.pkg.tar.zst" ../repository/$arch/ &&
 git pull &&
 git add . &&
 git commit -m "update" &&
