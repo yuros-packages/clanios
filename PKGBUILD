@@ -3,14 +3,14 @@
 # NOTE: Please fill out the license field for your package! If it is unknown,
 # then please put 'unknown'.
 
-# Maintainer: Your Name <youremail@domain.com>
+# Maintainer: null <null@yuros.org>
 pkgname=clanios
 pkgver=1.0.0
 pkgrel=1
 epoch=
-pkgdesc="dekstop package cleansing and disk optimizer"
+pkgdesc="yuros system installation and configuration"
 arch=('x86_64')
-url="https://yuros.org/package/clanios"
+url="https://package.yuros.org/clanios"
 license=('MIT')
 groups=()
 depends=('bash' 'pacman')
