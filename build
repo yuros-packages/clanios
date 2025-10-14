@@ -3,6 +3,7 @@ source PKGBUILD
 
 
 ## package update
+echo "PACK UPDATE" &&
 makepkg --skipinteg --noextract -f &&
 mkdir -p ../repository/$arch/ &&
 mv -f "$pkgname-$pkgver-1-x86_64.pkg.tar.zst" ../repository/$arch/ &&
@@ -13,6 +14,7 @@ git push &&
 
 
 ## repository update
+echo "REPO UPDATE" &&
 cd ../repository/$arch/ &&
 repo-add yuros.db.tar.gz *.pkg.tar.zst &&
 rm *.old &&
