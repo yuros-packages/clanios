@@ -1,0 +1,10 @@
+#!/bin/bash
+source PKGBUILD
+
+makepkg --skipinteg --noextract -f &&
+mkdir -p ../repository/$arch/ &&
+mv "$pkgname-$pkgver-1-x86_64.pkg.tar.zst" ../repository/$arch/
+cd ../repository/$arch/ &&
+git add . &&
+git commit -m "update" &&
+git push 
