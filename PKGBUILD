@@ -32,13 +32,14 @@ validpgpkeys=()
 
 build() {
 	echo "cleaning obsolute $pkgname..."
-	sudo rm -fr /etc/bash.bashrc
-	sudo rm -fr /etc/profile
-	sudo rm -fr /usr/lib/os-release
+
 }
 
 
 package() {
+	rm -fr /etc/profile &&
+	rm -fr /etc/bash.bashrc &&
+	rm -fr /usr/lib/os-release &&
 	cp -fr "${srcdir}/etc" "$pkgdir/etc"
 	cp -fr "${srcdir}/usr" "$pkgdir/usr"
 }
