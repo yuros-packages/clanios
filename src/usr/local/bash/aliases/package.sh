@@ -19,7 +19,7 @@ function repo-opti-daemon() {
 }
 
 
-function repo-add() {
+function repo-make() {
     $name=$1
     $link=$2
 
