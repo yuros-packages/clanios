@@ -14,6 +14,7 @@ git push &&
 
 ## repository update
 cd ../repository/$arch/ &&
+repo-add yuros.db.tar.gz *.pkg.tar.zst &&
 git pull &&
 git add . &&
 git commit -m "update" &&
