@@ -11,10 +11,10 @@ source /etc/config
 function repo-opti() {
 
     if [[ -e /etc/pacman.d/mirrororigin ]];then
-        reflector --save /etc/pacman.d/mirrorlist --counrty $repo_server --protocol https --latest 5
+        reflector --save /etc/pacman.d/mirrorlist --list-counrty $repo_server --protocol https --latest 5
     else
         cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrororigin &&
-        reflector --save /etc/pacman.d/mirrorlist --counrty $repo_server --protocol https --latest 5
+        reflector --save /etc/pacman.d/mirrorlist --list-counrty $repo_server --protocol https --latest 5
     fi 
 }
 
@@ -41,44 +41,30 @@ function app-opti() {
 
 
 function app-sync() {
-    /usr/bin/sudo repo-opti-daemon && /usr/bin/pacman --sync --refresh --refresh --noconfirm && app-opti-daemon
+    /usr/bin/pacman --sync --refresh --refresh --noconfirm
 }
 
 
 function app-late() {
-    repo-opti-daemon && /usr/bin/sudo /usr/bin/pacman --sync --refresh --sysupgrade --noconfirm && app-opti-daemon
+    /usr/bin/sudo /usr/bin/pacman --sync --refresh --sysupgrade --noconfirm
 }
 
 
 function app-temp() {
-    /usr/bin/sudo /usr/bin/pacman --sync --clean --clean --noconfirm && repo-opti-daemon
+    /usr/bin/sudo /usr/bin/pacman --sync --clean --clean --noconfirm
 }
 
 
 function app-add() {
-    repo-opti-daemon & /usr/bin/pacman --sync $1 --noconfirm
+    /usr/bin/sudo /usr/bin/pacman --sync $1 --noconfirm
 }
 
 
 function app-del() {
-    /usr/bin/sudo /usr/bin/pacman --remove $1 --noconfirm && repo-opti-daemon && app-opti-daemon
+    /usr/bin/sudo /usr/bin/pacman --remove $1 --noconfirm 
 }
 
 
 function app-pure() {
-    /usr/bin/sudo /usr/bin/pacman --remove --recursive $1 --noconfirm && repo-opti-daemon && app-opti-daemon
+    /usr/bin/sudo /usr/bin/pacman --remove --recursive $1 --noconfirm
 }
-
-
-## userspace alias
-alias app-add="sudo pacman --sync $1"
-alias app-del="sudo pacman --remove $1"
-alias app-must="sudo pacman --sync $1 --overwrite '*'"
-alias app-pure="sudo pacman --remove --recursive $1"
-alias app-opti="sudo pacman --sync --clean"
-alias app-sync="sudo pacman --sync --refresh --refresh"
-alias app-late="sudo pacman --sync --refresh --sysupgrade"
-
-
-## repository alias
-alias repo-opti="sudo repo-opti-daemon"
