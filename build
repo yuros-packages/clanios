@@ -1,10 +1,20 @@
 #!/bin/bash
 source PKGBUILD
 
+
+## package update
 makepkg --skipinteg --noextract -f &&
+git pull &&
+git add . &&
+git commit -m "update" &&
+git push && 
+
+
+## repository update
 mkdir -p ../repository/$arch/ &&
 mv "$pkgname-$pkgver-1-x86_64.pkg.tar.zst" ../repository/$arch/
 cd ../repository/$arch/ &&
+git pull &&
 git add . &&
 git commit -m "update" &&
 git push 
