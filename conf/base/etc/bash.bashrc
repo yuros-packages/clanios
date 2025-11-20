@@ -26,8 +26,8 @@ if [[ -r /usr/share/bash-completion/bash_completion ]]; then
 fi
 
 # enable bash extended source
-if test -d /usr/local/lbin/; then
-  	for loader in /usr/local/lbin/*.sh; do
+if test -d /usr/local/bash/; then
+  	for loader in /usr/local/bash/*.sh; do
   		test -r "$loader" && . "$loader"
   	done
   	unset loader
