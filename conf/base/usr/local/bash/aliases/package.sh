@@ -20,7 +20,17 @@ function repo-opti-daemon() {
 
 
 function repo-add() {
+    $name=$1
+    $link=$2
 
+    if [[ -e "/etc/pacman.d/$name.conf" ]];then
+        echo "server repository is existed" &&
+        exit
+    fi
+
+    touch "/etc/pacman.d/$name.conf" &&
+    echo "[$name]\nServer = $link" > "/etc/pacman.d/$name.conf" &&
+    /usr/bin/pacman --sync --refresh --refresh --noconfirm
 }
 
 
@@ -67,6 +77,7 @@ alias app-pure="sudo /usr/bin/pacman --remove --recursive $1 && sudo app-opti-da
 alias app-opti="sudo /usr/bin/pacman --sync --clean"
 alias app-sync="sudo /usr/bin/pacman --sync --refresh --refresh"
 alias app-late="sudo /usr/bin/pacman --sync --refresh --sysupgrade && sudo app-opti-daemon"
+
 
 ## repository alias
 alias repo-opti="sudo repo-opti-daemon"
