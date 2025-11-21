@@ -11,14 +11,25 @@ append_path () {
     esac
 }
 
+
 # Append our default paths
-append_path '/usr/local/sbin'
+# 1. dbin used for daemon script
+# 2. cbin used for distro script
+# 3. lbin used for sesion script
+# 4. rbin used for webapp script
+# 5. sbin used for admins script
+# 6. vbin used for container bin
+# 7. wbin used for webapp script
+# 8. xbin used for secure script
+
 append_path '/usr/local/dbin'
 append_path '/usr/local/cbin'
-append_path '/usr/local/rbin'
 append_path '/usr/local/lbin'
-append_path '/usr/local/xbin'
+append_path '/usr/local/rbin'
+append_path '/usr/local/sbin'
 append_path '/usr/local/vbin'
+append_path '/usr/local/wbin'
+append_path '/usr/local/xbin'
 append_path '/usr/local/bin'
 append_path '/usr/bin'
 
