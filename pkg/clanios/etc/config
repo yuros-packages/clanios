@@ -1,0 +1,11 @@
+#!/bin/bash
+
+## CLANIOS CONFIGURATION
+
+## bash configuration
+bash_theme=default
+
+
+## package configuration
+auto_update=true
+repo_server="Indonesia,Singapore"

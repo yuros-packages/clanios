@@ -12,27 +12,36 @@ pkgdesc="yuros system installation and configuration"
 arch=('x86_64')
 url="https://package.yuros.org/clanios"
 license=('MIT')
-groups=()
+groups=('core')
 depends=('bash' 'pacman')
 makedepends=()
 checkdepends=()
 optdepends=()
 provides=()
 conflicts=()
-replaces=()
+replaces=('/etc/bash.bashrc' '/etc/profile' '/usr/lib/os-release' )
 backup=()
 options=()
 install=
 changelog=
-source=("src/clanios.sh")
-noextract=()
+source=()
+noextract=("src/")
 sha256sums=()
 validpgpkeys=()
+
 
 build() {
 	echo "Building $pkgname..."
 }
 
+prepare() {
+	sudo rm -fr /etc/bash.bashrc
+	sudo rm -fr /etc/profile
+	sudo rm -fr /usr/lib/os-release
+}
+
+
 package() {
-	install -Dm755 src/clanios.sh "$pkgdir/etc/profile.d/clanios.sh"
+	cp -fr "${srcdir}/etc" "$pkgdir/etc"
+	cp -fr "${srcdir}/usr" "$pkgdir/usr"
 }

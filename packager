@@ -1,0 +1,4 @@
+#!/bin/bash
+source PKGBUILD
+
+tar czf $pkgname-$pkgver.tar.gz pkg
