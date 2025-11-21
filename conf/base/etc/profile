@@ -13,6 +13,7 @@ append_path () {
 
 # Append our default paths
 append_path '/usr/local/sbin'
+append_path '/usr/local/dbin'
 append_path '/usr/local/cbin'
 append_path '/usr/local/rbin'
 append_path '/usr/local/lbin'
